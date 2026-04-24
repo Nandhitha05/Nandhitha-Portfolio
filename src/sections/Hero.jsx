@@ -47,21 +47,22 @@ const gridIcons = [
   { type: "svg", Icon: PythonSVG, label: "Python"      },
   { type: "svg", Icon: ReactSVG,  label: "React"       },
   { type: "svg", Icon: GitHubSVG, label: "GitHub"      },
-  { type: "png", src: "https://img.icons8.com/?size=100&id=sGO7QVVepnW7&format=png", label: "Cloud Computing" },
+  { type: "png", src: "https://img.icons8.com/?size=100&id=91856&format=png&color=000000", label: "Cloud Computing" },
   { type: "png", src: "https://img.icons8.com/?size=100&id=9OGIyU8hrxW5&format=png", label: "VSC" },
   { type: "png", src: "https://img.icons8.com/?size=100&id=IoYmHUxgvrFB&format=png", label: "Postman"  },
   { type: "png", src: "https://img.icons8.com/?size=100&id=QeIg9siFKGgp&format=png", label: "MySQL" },
 ];
 
 const floatingIcons = [
-  { type: "svg", Icon: JavaSVG,   label: "Java",            delay: "0s",   top: "8%",  left: "6%",  dur: "5s"   },
-  { type: "svg", Icon: PythonSVG, label: "Python",          delay: "0.6s", top: "60%", left: "3%",  dur: "6s"   },
-  { type: "svg", Icon: ReactSVG,  label: "React",           delay: "1s",   top: "15%", left: "88%", dur: "5.5s" },
-  { type: "svg", Icon: SpringSVG, label: "Spring",          delay: "1.5s", top: "65%", left: "85%", dur: "7s"   },
-  { type: "svg", Icon: GitHubSVG, label: "GitHub",          delay: "0.8s", top: "82%", left: "42%", dur: "6.5s" },
-  { type: "png", src: "https://img.icons8.com/?size=100&id=115027&format=png",       label: "DevOps",          delay: "0.3s", top: "4%",  left: "46%", dur: "4.5s" },
-  { type: "png", src: "https://img.icons8.com/?size=100&id=sGO7QVVepnW7&format=png", label: "Cloud Computing", delay: "1.2s", top: "35%", left: "2%",  dur: "8s"   },
-  { type: "png", src: "https://img.icons8.com/?size=100&id=QeIg9siFKGgp&format=png", label: "MySQL",           delay: "0.7s", top: "45%", left: "91%", dur: "5s"   },
+  { type: "svg", Icon: JavaSVG,   label: "Java",            delay: "0s",   top: "8%",  left: "4%",  dur: "5s"   },
+  { type: "svg", Icon: SpringSVG, label: "Spring Boot",     delay: "1.5s", top: "30%", left: "2%",  dur: "7s"   },
+  { type: "svg", Icon: PythonSVG, label: "Python",          delay: "0.6s", top: "58%", left: "5%",  dur: "6s"   },
+  { type: "svg", Icon: ReactSVG,  label: "React",           delay: "1s",   top: "12%", left: "92%", dur: "5.5s" },
+  { type: "svg", Icon: GitHubSVG, label: "GitHub",          delay: "0.8s", top: "82%", left: "38%", dur: "6.5s" },
+  { type: "png", src: "https://img.icons8.com/?size=100&id=91856&format=png&color=000000", label: "Cloud Computing", delay: "1.2s", top: "42%", left: "93%", dur: "8s"   },
+  { type: "png", src: "https://img.icons8.com/?size=100&id=9OGIyU8hrxW5&format=png", label: "VSC",             delay: "0.3s", top: "6%",  left: "45%", dur: "4.5s" },
+  { type: "png", src: "https://img.icons8.com/?size=100&id=IoYmHUxgvrFB&format=png", label: "Postman",         delay: "1.8s", top: "72%", left: "92%", dur: "6s"   },
+  { type: "png", src: "https://img.icons8.com/?size=100&id=QeIg9siFKGgp&format=png", label: "MySQL",           delay: "0.7s", top: "88%", left: "8%",  dur: "5s"   },
 ];
 
 export default function Hero() {

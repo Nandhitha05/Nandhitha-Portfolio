@@ -55,9 +55,11 @@
 .dark .tech-float { opacity: 0.08; }
 
 @keyframes techDrift {
-  0%   { transform: translateY(0px) rotate(0deg); }
-  50%  { transform: translateY(-30px) rotate(10deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  25%  { transform: translate(10px, -35px) rotate(8deg); }
+  50%  { transform: translate(-8px, -55px) rotate(-6deg); }
+  75%  { transform: translate(-12px, -25px) rotate(4deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
 /* ── Chatbot bot face pulse ── */

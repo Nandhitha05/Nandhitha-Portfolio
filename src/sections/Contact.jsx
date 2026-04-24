@@ -45,7 +45,7 @@ export default function Contact() {
           </div>
           <button type="submit" disabled={!filled}
             className="w-full py-3.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-black rounded-xl transition-all hover:scale-[1.02] active:scale-100 shadow-lg shadow-pink-200 dark:shadow-none">
-            {sent ? "✓ Email client opened!" : "Send Message 💌"}
+            {sent ? "✓ Email client opened!" : "Send Message"}
           </button>
         </form>
 

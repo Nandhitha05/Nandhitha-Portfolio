@@ -44,7 +44,7 @@ async function askGemini(messages) {
   const lastMessage = messages[messages.length - 1].content;
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -59,7 +59,8 @@ async function askGemini(messages) {
         ],
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 200,
+          maxOutputTokens: 300,
+          thinkingConfig: { thinkingBudget: 0 },
         }
       }),
     }
@@ -77,7 +78,7 @@ async function askGemini(messages) {
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: "assistant", content: "Hi there! 👋 I'm Nandhitha's AI assistant. Ask me about her skills, projects, or experience!" },
+    { role: "assistant", content: "Hi there! 👋 I'm Tony, Nandhitha's AI assistant. Ask me about her skills, projects, or experience!" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -154,7 +155,7 @@ export default function Chatbot() {
             <BotFace size={36} mood={loading ? "thinking" : "happy"} />
           </div>
           <div className="flex-1">
-            <p className="text-sm font-black text-white">Nandhitha's AI Assistant</p>
+            <p className="text-sm font-black text-white">Tony <span className="font-normal text-pink-100">· Nandhitha's AI Assistant</span></p>
             <p className="text-xs text-pink-100">{loading ? "Thinking..." : "Powered by Gemini · Online"}</p>
           </div>
           <div className="w-2 h-2 rounded-full bg-green-300 animate-pulse" />

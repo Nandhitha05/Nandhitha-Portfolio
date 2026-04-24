@@ -41,7 +41,7 @@ export default function App() {
         <Contact />
       </main>
       <footer className="py-8 text-center text-sm text-pink-400 dark:text-pink-800 border-t border-pink-100 dark:border-gray-900">
-        <p>Crafted with by Nandhitha B</p>
+        <p>Crafted by Nandhitha B</p>
       </footer>
       <Chatbot />
     </div>
