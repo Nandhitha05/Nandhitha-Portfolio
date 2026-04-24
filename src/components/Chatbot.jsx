@@ -42,37 +42,21 @@ function BotFace({ size = 48, mood = "happy" }) {
 
 async function askGemini(messages) {
   const lastMessage = messages[messages.length - 1].content;
+  const prompt = `${chatbotKnowledge}\n\nUser question: ${lastMessage}\n\nAnswer concisely in under 100 words.`;
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          {
-            role: "user",
-            parts: [
-              { text: `${chatbotKnowledge}\n\nUser question: ${lastMessage}\n\nAnswer concisely in under 100 words.` }
-            ]
-          }
-        ],
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 300,
-          thinkingConfig: { thinkingBudget: 0 },
-        }
-      }),
-    }
-  );
+  const response = await fetch("/.netlify/functions/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt }),
+  });
 
   if (!response.ok) {
-    const err = await response.json();
+    const err = await response.json().catch(() => ({}));
     console.error("Gemini error:", err);
     throw new Error(`API error: ${response.status}`);
   }
   const data = await response.json();
-  return data.candidates?.[0]?.content?.parts?.[0]?.text ?? "Sorry, I couldn't respond right now!";
+  return data.text || "Sorry, I couldn't respond right now!";
 }
 
 export default function Chatbot() {
