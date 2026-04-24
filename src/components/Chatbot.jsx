@@ -53,6 +53,11 @@ async function askGemini(messages) {
   if (!response.ok) {
     const err = await response.json().catch(() => ({}));
     console.error("Gemini error:", err);
+    if (response.status === 429) {
+      const e = new Error("rate_limited");
+      e.rateLimited = true;
+      throw e;
+    }
     throw new Error(`API error: ${response.status}`);
   }
   const data = await response.json();
@@ -99,7 +104,10 @@ export default function Chatbot() {
       setBotMood("happy");
     } catch (err) {
       console.error("Chat error:", err);
-      setMessages(prev => [...prev, { role: "assistant", content: "Hmm, I had trouble connecting. Try again or email Nandhitha directly!" }]);
+      const msg = err.rateLimited
+        ? "I'm catching my breath! 😅 You've asked quite a few questions — please wait ~30 seconds and try again."
+        : "Hmm, I had trouble connecting. Try again or email Nandhitha directly!";
+      setMessages(prev => [...prev, { role: "assistant", content: msg }]);
       setBotMood("sad");
       setTimeout(() => setBotMood("happy"), 3000);
     } finally {
